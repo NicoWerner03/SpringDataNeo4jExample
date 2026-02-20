@@ -35,15 +35,15 @@ public class MovieController {
         service.create(movie);
     }
 
-    @PostMapping("/{title}")
+    @PostMapping("/{title}/roles")
     @ResponseStatus(HttpStatus.ACCEPTED)
     public void addRoleToMovie(@PathVariable String title, @RequestBody Role role) {
         service.addRoleToMovie(title, role);
     }
 
-    @PostMapping("/directors")
+    @PostMapping("/{title}/directors")
     @ResponseStatus(HttpStatus.ACCEPTED)
-    public void addDirectorToMovie(@RequestBody String title, @RequestBody Person person) {
+    public void addDirectorToMovie(@PathVariable String title, @RequestBody Person person) {
         service.addDirectorToMovie(title, person);
     }
 }

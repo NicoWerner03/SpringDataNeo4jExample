@@ -73,6 +73,7 @@ public class MovieService extends BasicService<Movie, Long> {
         if (repository.existsByTitle(title) && personService.existsByName(person.getName())) {
             Movie movie = repository.findByTitle(title);
             movie.getDirectors().add(personService.findByName(person.getName()));
+            repository.save(movie);
         } else {
             throw new NotFoundException("Director or Movie does not exist");
         }
